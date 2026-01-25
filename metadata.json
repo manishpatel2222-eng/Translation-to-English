@@ -1,0 +1,7 @@
+{
+  "name": "Gujarati Expert Translator",
+  "description": "A high-precision Gujarati to English translator featuring text and voice input with advanced AI reasoning for perfect accuracy.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
