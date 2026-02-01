@@ -16,7 +16,7 @@ CRITICAL GUIDELINES:
 `;
 
 export async function translateText(text: string): Promise<TranslationResult> {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: `Carefully analyze and translate this Gujarati text to natural English: "${text}"`,
@@ -45,7 +45,7 @@ export async function translateText(text: string): Promise<TranslationResult> {
 }
 
 export async function translateAudio(base64Audio: string, mimeType: string): Promise<TranslationResult> {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: {
@@ -79,7 +79,7 @@ export async function translateAudio(base64Audio: string, mimeType: string): Pro
 }
 
 export async function synthesizeSpeech(text: string): Promise<string> {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash-preview-tts",
     contents: [{ parts: [{ text: `Speak this English translation clearly and professionally: "${text}"` }] }],
